@@ -141,7 +141,8 @@ function getPullRequests(client, prNumbers) {
                 prData = result.data;
             }
             catch (error) {
-                core.warning(`Could not find pull request #${prNumber}, skipping`);
+                core.warning(error);
+                core.warning(`!!! Could not find pull request #${prNumber}, skipping`);
                 continue;
             }
             core.debug(`fetching changed files for pr #${prNumber}`);
